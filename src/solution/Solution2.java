@@ -1,0 +1,32 @@
+package solution;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+class Solution2 {
+    public int lengthOfLongestSubstring(String s) {
+        char[] chars = s.toCharArray();
+        Set<Character> set = new HashSet();
+        int index = 0;
+        int res = 0;
+        for (char ch : chars) {
+            if (!set.add(ch)) {
+                res = Math.max(res, set.size());
+                while (chars[index] != ch) {
+                    set.remove((Character) chars[index++]);
+                }
+                index++;
+            }
+        }
+        return Math.max(res, set.size());
+    }
+
+    public static void main(String[] args) {
+        Solution2 solution2 = new Solution2();
+        String string = "aabaab!bb";
+        int res = solution2.lengthOfLongestSubstring(string);
+        int finish = -1;
+    }
+}
