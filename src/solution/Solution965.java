@@ -4,6 +4,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+
+/**
+ * TreeNode
+ *
+ * @author Yifeng
+ * @date 2020/5/3
+ */
 class TreeNode {
       int val;
       TreeNode left;
@@ -11,14 +18,13 @@ class TreeNode {
       TreeNode(int x) { val = x; }
 }
 
-// 递归
+
 public class Solution965 {
     public boolean isUnivalTree(TreeNode root) {
         return (root.left == null || root.left.val == root.val && isUnivalTree(root.left)) && (root.right == null || root.right.val == root.val && isUnivalTree(root.right));
     }
 }
 
-// dfs
 class DfsSolution {
     List<Integer> vals;
     public boolean isUnivalTree(TreeNode root) {
@@ -42,7 +48,6 @@ class DfsSolution {
     }
 }
 
-// bfs
 class BfsSolution {
 
     List<Integer> vals;
